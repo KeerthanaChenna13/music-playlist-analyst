@@ -29,8 +29,6 @@ print("Libraries imported successfully!")
 # Step 2: Upload Dataset
 # ==========================================
 
-from google.colab import files
-
 uploaded = files.upload()
 
 # ==========================================
