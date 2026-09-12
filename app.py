@@ -1394,8 +1394,6 @@ import os
 print(os.path.exists("playlist_rank_model.pkl"))
 print(os.path.exists("feature_names.pkl"))
 
-!pip install -q streamlit pyngrok
-
 %%writefile app.py
 
 import streamlit as st
