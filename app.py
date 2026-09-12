@@ -1808,7 +1808,6 @@ from google.colab.output import eval_js
 url = eval_js("google.colab.kernel.proxyPort(8501)")
 print(url)
 
-!cat /content/streamlit.log
 
 !ps aux | grep streamlit
 
