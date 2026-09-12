@@ -29,8 +29,6 @@ print("Libraries imported successfully!")
 # Step 2: Upload Dataset
 # ==========================================
 
-uploaded = files.upload()
-
 # ==========================================
 # Step 3: Load Dataset
 # ==========================================
