@@ -1803,8 +1803,6 @@ public_url = ngrok.connect(8501)
 print("Your Streamlit Dashboard:")
 print(public_url)
 
-!pip install streamlit -q
-
 from google.colab.output import eval_js
 
 url = eval_js("google.colab.kernel.proxyPort(8501)")
