@@ -1796,8 +1796,6 @@ elif page == "Model Information":
 
     st.write(feature_names)
 
-!pip install -q pyngrok
-
 from pyngrok import ngrok
 
 public_url = ngrok.connect(8501)
