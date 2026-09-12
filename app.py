@@ -1796,8 +1796,6 @@ elif page == "Model Information":
 
     st.write(feature_names)
 
-!ls -lh app.py
-
 !streamlit run app.py &>/content/log.txt &
 
 !pip install -q pyngrok
