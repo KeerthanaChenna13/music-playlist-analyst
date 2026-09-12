@@ -1813,8 +1813,6 @@ from google.colab.output import eval_js
 url = eval_js("google.colab.kernel.proxyPort(8501)")
 print(url)
 
-!streamlit run app.py --server.address=0.0.0.0 --server.port=8501 --server.enableXsrfProtection=false --server.enableCORS=false
-
 import streamlit as st
 
 st.success("Application loaded successfully.")
