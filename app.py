@@ -1796,8 +1796,6 @@ elif page == "Model Information":
 
     st.write(feature_names)
 
-!streamlit run app.py &>/content/log.txt &
-
 !pip install -q pyngrok
 
 from pyngrok import ngrok
@@ -1808,8 +1806,6 @@ print("Your Streamlit Dashboard:")
 print(public_url)
 
 !pip install streamlit -q
-
-!streamlit run app.py &>/content/streamlit.log &
 
 from google.colab.output import eval_js
 
