@@ -1,6 +1,9 @@
 import os
 from pathlib import Path
 
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -345,8 +348,7 @@ if page == "Dashboard":
             .mean()
             .sort_values("date")
         )
-        fig = plt.figure()
-        ax = fig.add_subplot(111)
+        fig, ax = plt.subplots()
         ax.plot(trend["date"], trend["popularity"])
         ax.set_xlabel("Date")
         ax.set_ylabel("Average Popularity")
