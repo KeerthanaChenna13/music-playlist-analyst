@@ -90,7 +90,7 @@ else:
 missing_values = df.isnull().sum()
 
 print("Missing values in each column:")
-display(missing_values.to_frame("Missing Values"))
+st.dataframe(missing_values.to_frame("Missing Values"))
 
 # ==========================================
 # Step 8: Duplicate Song-Date Check
@@ -109,7 +109,7 @@ if len(duplicate_song_date) == 0:
     print("✅ No duplicate song-date entries found.")
 else:
     print("⚠️ Duplicate song-date entries found.")
-    display(duplicate_song_date.head(10))
+   st.dataframe(duplicate_song_date.head(10))
 
 # ==========================================
 # Step 9: Dataset Summary
@@ -154,7 +154,7 @@ df['duration_minutes'] = df['duration_ms'] / 60000
 
 print("Duration conversion completed!")
 
-display(
+st.dataframe(
     df[['song', 'duration_ms', 'duration_minutes']].head(10)
 )
 
@@ -180,7 +180,7 @@ print("Song-level feature engineering completed!")
 
 print("Number of unique songs:", len(song_metrics))
 
-display(song_metrics.head(10))
+st.dataframe(song_metrics.head(10))
 
 # ==========================================
 # Step 13: Popularity Trend Score
@@ -195,7 +195,7 @@ df['Popularity_Trend_Score'] = (
 
 print("Popularity Trend Score created!")
 
-display(
+st.dataframe(
     df[
         ['date', 'song', 'popularity', 'Popularity_Trend_Score']
     ].head(15)
@@ -214,7 +214,7 @@ df['Popularity_Trend_Score'] = (
 
 print("Popularity Trend Score created!")
 
-display(
+st.dataframe(
     df[
         ['date', 'song', 'popularity', 'Popularity_Trend_Score']
     ].head(15)
@@ -234,7 +234,7 @@ print("Song metrics merged successfully!")
 
 print("\nUpdated dataset shape:", df.shape)
 
-display(df.head())
+st.dataframe(df.head())
 
 # ==========================================
 # Step 15: Daily Rank Distribution
@@ -247,7 +247,7 @@ rank_distribution = (
 )
 
 print("Playlist Rank Distribution:")
-display(rank_distribution.to_frame("Number of Appearances"))
+st.dataframe(rank_distribution.to_frame("Number of Appearances"))
 
 # ==========================================
 # Step 16: Rank Distribution Chart
@@ -281,7 +281,7 @@ daily_rank = (
       .reset_index()
 )
 
-display(daily_rank.head(10))
+st.dataframe(daily_rank.head(10))
 
 # ==========================================
 # Step 18: Daily Average Rank Trend
@@ -316,7 +316,7 @@ df['Rank_Change'] = (
     df['Previous_Rank'] - df['position']
 )
 
-display(
+st.dataframe(
     df[
         ['date', 'song', 'position', 'Previous_Rank', 'Rank_Change']
     ].head(20)
@@ -333,7 +333,7 @@ fast_risers = (
 
 print("Top Fast-Rising Song Movements:")
 
-display(
+st.dataframe(
     fast_risers[
         ['date', 'song', 'artist',
          'Previous_Rank', 'position', 'Rank_Change']
@@ -351,7 +351,7 @@ decliners = (
 
 print("Top Declining Song Movements:")
 
-display(
+st.dataframe(
     decliners[
         ['date', 'song', 'artist',
          'Previous_Rank', 'position', 'Rank_Change']
@@ -383,7 +383,7 @@ entry_summary = (
            .reset_index(name='New_Songs')
 )
 
-display(entry_summary.head(20))
+st.dataframe(entry_summary.head(20))
 
 # ==========================================
 # Step 24: Song Exit Detection
@@ -429,7 +429,7 @@ longest_chart_songs = song_performance.sort_values(
 ).head(10)
 
 print("Top 10 Songs with Longest Playlist Presence:")
-display(longest_chart_songs[
+st.dataframe(longest_chart_songs[
     ['song', 'artist', 'Days_on_Chart', 'Average_Rank',
      'Best_Rank_Achieved', 'Average_Popularity']
 ])
@@ -444,7 +444,7 @@ most_popular_songs = song_performance.sort_values(
 ).head(10)
 
 print("\nTop 10 Songs with Highest Average Popularity:")
-display(most_popular_songs[
+st.dataframe(most_popular_songs[
     ['song', 'artist', 'Average_Popularity',
      'Days_on_Chart', 'Average_Rank', 'Best_Rank_Achieved']
 ])
@@ -459,7 +459,7 @@ best_average_rank = song_performance.sort_values(
 ).head(10)
 
 print("\nTop 10 Songs with Best Average Rank:")
-display(best_average_rank[
+st.dataframe(best_average_rank[
     ['song', 'artist', 'Average_Rank',
      'Best_Rank_Achieved', 'Days_on_Chart',
      'Average_Popularity']
@@ -475,7 +475,7 @@ most_volatile_songs = song_performance.sort_values(
 ).head(10)
 
 print("\nTop 10 Most Volatile Songs:")
-display(most_volatile_songs[
+st.dataframe(most_volatile_songs[
     ['song', 'artist', 'Rank_Volatility_Index',
      'Days_on_Chart', 'Average_Rank',
      'Best_Rank_Achieved']
@@ -534,7 +534,7 @@ top_artists_songs = artist_performance.sort_values(
 ).head(10)
 
 print("Top 10 Artists by Number of Unique Songs:")
-display(top_artists_songs)
+st.dataframe(top_artists_songs)
 
 # ------------------------------------------
 # Top artists by total appearances
@@ -546,7 +546,7 @@ top_artists_presence = artist_performance.sort_values(
 ).head(10)
 
 print("\nTop 10 Artists by Total Playlist Appearances:")
-display(top_artists_presence)
+st.dataframe(top_artists_presence)
 
 # ------------------------------------------
 # Top artists by average popularity
@@ -558,7 +558,7 @@ top_artists_popularity = artist_performance.sort_values(
 ).head(10)
 
 print("\nTop 10 Artists by Average Popularity:")
-display(top_artists_popularity)
+st.dataframe(top_artists_popularity)
 
 print("\nArtist performance analysis completed successfully!")
 
@@ -580,7 +580,7 @@ artist_dominance = artist_performance.sort_values(
 
 print("========== ARTIST DOMINANCE LEADERBOARD ==========\n")
 
-display(
+st.dataframe(
     artist_dominance[
         [
             'artist',
@@ -625,7 +625,7 @@ print("===== SONG-LEVEL PERFORMANCE =====")
 print("Total unique songs:", len(song_performance))
 
 print("\nTop 10 Songs with Longest Playlist Presence:")
-display(longest_chart_songs.head(10))
+st.dataframe(longest_chart_songs.head(10))
 
 # ==========================================
 # TOP SONGS BY AVERAGE RANK
@@ -637,7 +637,7 @@ top_average_rank = song_performance.sort_values(
 ).head(10)
 
 print("===== TOP SONGS BY AVERAGE RANK =====")
-display(top_average_rank)
+st.dataframe(top_average_rank)
 
 # ==========================================
 # SONGS WITH BEST PEAK RANK
@@ -649,7 +649,7 @@ best_peak_songs = song_performance.sort_values(
 ).head(10)
 
 print("===== SONGS WITH BEST PEAK RANK =====")
-display(best_peak_songs)
+st.dataframe(best_peak_songs)
 
 # ==========================================
 # MOST POPULAR SONGS
@@ -661,7 +661,7 @@ most_popular_songs = song_performance.sort_values(
 ).head(10)
 
 print("===== MOST POPULAR SONGS =====")
-display(most_popular_songs)
+st.dataframe(most_popular_songs)
 
 # ==========================================
 # PEAK RANK VS LONGEVITY
@@ -721,7 +721,7 @@ print("===== ARTIST PERFORMANCE ANALYSIS =====")
 print("Unique Artists:", len(artist_performance))
 
 print("\nTop 10 Artists by Chart Appearances:")
-display(artist_performance.head(10))
+st.dataframe(artist_performance.head(10))
 
 # ==========================================
 # ARTISTS WITH MOST UNIQUE SONGS
@@ -733,7 +733,7 @@ top_artists_songs = artist_performance.sort_values(
 ).head(10)
 
 print("===== TOP ARTISTS BY UNIQUE SONGS =====")
-display(top_artists_songs)
+st.dataframe(top_artists_songs)
 
 # ==========================================
 # ARTIST DOMINANCE LEADERBOARD
@@ -746,7 +746,7 @@ top_dominant_artists = artist_performance.sort_values(
 
 print("===== ARTIST DOMINANCE LEADERBOARD =====")
 
-display(
+st.dataframe(
     top_dominant_artists[
         [
             'artist',
@@ -861,7 +861,7 @@ popularity_distribution = df.groupby(
 ).reset_index()
 
 print("===== POPULARITY DISTRIBUTION =====")
-display(popularity_distribution)
+st.dataframe(popularity_distribution)
 
 # ==========================================
 # AVERAGE POPULARITY BY RANK GROUP
@@ -905,7 +905,7 @@ song_stability['Rank_Volatility'] = (
 
 print("===== POPULARITY STABILITY VS CHART VOLATILITY =====")
 
-display(
+st.dataframe(
     song_stability.sort_values(
         'Rank_Volatility',
         ascending=False
@@ -1100,7 +1100,7 @@ kpi_summary = pd.DataFrame({
     ]
 })
 
-display(kpi_summary)
+st.dataframe(kpi_summary)
 
 # ==========================================
 # STEP 10: FEATURE ENGINEERING FOR ML
@@ -1166,14 +1166,14 @@ print("===== ML DATASET =====")
 print("Rows:", len(ml_data))
 print("Columns:", len(ml_data.columns))
 
-display(ml_data.head(10))
+st.dataframe(ml_data.head(10))
 
 # ==========================================
 # STEP 11: ML DATASET CHECK
 # ==========================================
 
 print("Missing values:")
-display(ml_data.isnull().sum())
+st.dataframe(ml_data.isnull().sum())
 
 print("\nTarget statistics:")
 print(ml_data['Next_Position'].describe())
@@ -1298,7 +1298,7 @@ importance = importance.sort_values(
 
 print("===== FEATURE IMPORTANCE =====")
 
-display(importance)
+st.dataframe(importance)
 
 import matplotlib.pyplot as plt
 
