@@ -476,7 +476,7 @@ elif page == "Data Analysis":
                 .head(10)
                 .sort_values()
             )
-            fig, ax = plt.subplots(figsize=(8, 5))
+            fig, ax = plt.subplots()
             ax.barh(songs.index.astype(str), songs.values)
             ax.set_xlabel("Average Popularity")
             fig.tight_layout()
@@ -485,7 +485,7 @@ elif page == "Data Analysis":
 
         with chart2:
             st.subheader("Playlist Position Distribution")
-            fig, ax = plt.subplots(figsize=(8, 5))
+            fig, ax = plt.subplots()
             ax.hist(df["position"].dropna(), bins=range(1, 52), rwidth=0.8)
             ax.set_xlabel("Playlist Position")
             ax.set_ylabel("Frequency")
