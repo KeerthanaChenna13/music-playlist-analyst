@@ -3,7 +3,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import streamlit as st
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
 # =========================================================
