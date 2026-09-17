@@ -345,7 +345,7 @@ if page == "Dashboard":
             .mean()
             .sort_values("date")
         )
-        fig, ax = plt.subplots()
+        fig = plt.figure()ax = fig.add_subplot(111)
         ax.plot(trend["date"], trend["popularity"])
         ax.set_xlabel("Date")
         ax.set_ylabel("Average Popularity")
