@@ -109,11 +109,12 @@ if len(duplicate_song_date) == 0:
     print("✅ No duplicate song-date entries found.")
 else:
     print("⚠️ Duplicate song-date entries found.")
-  st.subheader("Duplicate Songs")
+ st.subheader("Duplicate Songs")
 
 duplicate_song_date = df[df.duplicated()]
 
-st.dataframe(duplicate_song_date.head(10))
+if not duplicate_song_date.empty:
+    st.dataframe(duplicate_song_date.head(10))
 
 # ==========================================
 # Step 9: Dataset Summary
