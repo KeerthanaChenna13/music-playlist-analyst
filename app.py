@@ -39,8 +39,7 @@ df = pd.read_csv(file_name)
 
 print("Dataset loaded successfully!")
 print("Shape:", df.shape)
-
-display(df.head())
+st.dataframe(df.head())
 
 # ==========================================
 # Step 4: Dataset Information
