@@ -345,7 +345,7 @@ if page == "Dashboard":
             .mean()
             .sort_values("date")
         )
-        fig, ax = plt.subplots(figsize=(8, 4))
+        fig, ax = plt.subplots()
         ax.plot(trend["date"], trend["popularity"])
         ax.set_xlabel("Date")
         ax.set_ylabel("Average Popularity")
@@ -358,7 +358,7 @@ if page == "Dashboard":
     with right:
         st.subheader("🏆 Top 10 Artists by Appearances")
         artist_counts = df["artist"].value_counts().head(10).sort_values()
-        fig, ax = plt.subplots(figsize=(8, 4))
+        fig, ax = plt.subplots()
         ax.barh(artist_counts.index.astype(str), artist_counts.values)
         ax.set_xlabel("Playlist Appearances")
         ax.set_ylabel("Artist")
